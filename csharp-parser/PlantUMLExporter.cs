@@ -12,7 +12,7 @@ class PlantUMLExporter
     {
         // Задаём путь к папке с .cs файлами и путь для сохранения .puml файла
         string folderPath = @"/home/alex/PROGRAM/LabsManager/Server/LabsManager"; // Укажи путь к папке с кодом
-        string outputFilePath = @"/home/alex/plantuml/diagram.puml"; // Укажи путь для сохранения файла PlantUML
+        string outputFilePath = @"/home/alex/PROGRAM/uml-csharp-parser/csharp-parser/diagram.puml"; // Укажи путь для сохранения файла PlantUML
 
         string plantUmlDiagram = GeneratePlantUmlFromFolder(folderPath);
         
@@ -26,6 +26,8 @@ class PlantUMLExporter
     {
         var plantUmlBuilder = new List<string>();
         plantUmlBuilder.Add("@startuml");
+        
+        plantUmlBuilder.Add("!theme vibrant");
 
         // Рекурсивно ищем все .cs файлы в директории и поддиректориях
         var csFiles = Directory.GetFiles(folderPath, "*.cs", SearchOption.AllDirectories);
